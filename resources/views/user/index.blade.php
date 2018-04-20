@@ -47,10 +47,8 @@
       Author URL: https://bootstrapmade.com
     ======================================================= -->
 </head>
-
 <body>
 <div id="preloader"></div>
-
 <!--==========================
   Hero Section
 ============================-->
@@ -87,6 +85,7 @@
             <ul class="nav-menu">
                 <li class="menu-active"><a href="#hero">خانه</a></li>
                 <li><a href="#about">درباره ما</a></li>
+				<li><a href="<?=  Url('/formform') ?>">انتقادات و پیشنهادات</a></li>
                 <li><a href="#services">خدمات</a></li>
                 {{--<li><a href="#portfolio">اخبار</a></li>--}}
                 <li><a href="#testimonials">اخبار</a></li>
@@ -395,16 +394,19 @@
                                    data-rule="minlen:4" data-msg="Please enter at least 4 chars"/>
                             <div class="validation"></div>
                         </div>
+                        
                         <div class="form-group">
                             <input type="email" class="form-control" name="email_sender" id="email" placeholder="ایمیل شما"
                                    data-rule="email" data-msg="Please enter a valid email"/>
                             <div class="validation"></div>
                         </div>
+                       
                         <div class="form-group">
                             <input type="text" class="form-control" name="subject_sender" id="subject" placeholder="موضوع"
                                    data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject"/>
                             <div class="validation"></div>
                         </div>
+                        
                         <div class="form-group">
                             <textarea class="form-control" name="message" rows="5" data-rule="required"
                                       data-msg="Please write something for us" placeholder="پیام"></textarea>

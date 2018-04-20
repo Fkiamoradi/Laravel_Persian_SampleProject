@@ -65,6 +65,12 @@
 				</div>
 			</div>
 			<ul class="nav">
+				<li>
+					<a href="form_/">
+						<i class="flaticon-puzzle"></i>
+						<p>مدیریت انتقادات و پیشنهادات</p>
+					</a>
+				</li>
 				<li @if($active == 'home')class="active"@endif>
 					<a href="/admin/home">
 						<i class="flaticon-puzzle"></i>

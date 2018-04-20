@@ -17,22 +17,29 @@ class LoginAdmin
     public function handle($request, Closure $next)
     {
          $url = $request->url();
-        if ($request->session()->exists('login_admin')) {
+        if ($request->session()->exists('login_admin'))
+        {
             $manage = new ManagementLoginAdmin();
             $username = $request->session()->get('login_admin');
             $check_set = $manage->check_username($username);
-            if ($check_set['status'] == '350'){
+            if ($check_set['status'] == '350')
+            {
                 $request->session()->put('admin_url',$url);
                 return $next($request);
-            }elseif ($check_set['status'] == '300'){
+            }
+            elseif ($check_set['status'] == '300')
+            {
                 //page hacker
-            }else{
+            }
+            else
+            {
                 //page moshkele fani
             }
-        } else {
+        }
+        else 
+        {
             $request->session()->put('admin_url',$url);
             return redirect()->route('login');
         }
-
     }
 }

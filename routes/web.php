@@ -9,22 +9,18 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-
-Route::group(['prefix' => 'admin', 'middleware' => 'auth_admin'], function () {
+Route::group(['prefix' => 'admin', 'middleware' => 'auth_admin'], function () 
+{
     Route::get('home', 'Admin\AdminController@get');
     Route::get('news/list/{page_num}', 'Admin\NewsController@get');
     Route::get('news/new', 'Admin\NewsNewController@get');
     Route::get('news/edit/{title}', 'Admin\NewsEditController@get');
-
     Route::post('news/new/post', 'Admin\NewsNewController@post');
     Route::post('news/edit/post', 'Admin\NewsEditController@post');
     Route::post('news/post', 'Admin\NewsController@post');
     Route::get('about_us/edit', 'Admin\AboutUsController@get');
-
     Route::get('contact_us', 'Admin\ContactUsController@get');
     Route::get('contact_us/answer', 'Admin\ContactUsSendAnswerController@get');
-
     Route::get('student/list/{condition}/{page_num}', 'Admin\StudentController@get')->where('page_num', '[0-9]+');
     Route::post('student/list/post', 'Admin\StudentController@post');
     Route::get('student/new', 'Admin\StudentNewController@get');
@@ -36,7 +32,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth_admin'], function () {
     Route::get('student/semester/new/{id}', 'Admin\StudentSemesterNewController@get');
     Route::post('student/semester/new/post', 'Admin\StudentSemesterNewController@post');
     Route::get('student/semester/edit/{id}', 'Admin\StudentSemesterEditController@get');
-
     Route::get('professor/list/{page_num}', 'Admin\ProfessorController@get')->where('page_num', '[0-9]+');
     Route::post('professor/list/post', 'Admin\ProfessorController@post');
     Route::get('professor/course/{id_professor}', 'Admin\ProfessorCourseController@get');
@@ -44,7 +39,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth_admin'], function () {
     Route::post('professor/new/post', 'Admin\ProfessorNewController@post');
     Route::get('professor/edit/{id}', 'Admin\ProfessorEditController@get');
     Route::post('professor/edit/post', 'Admin\ProfessorEditController@post');
-
     Route::get('course/list/{page_num}', 'Admin\CourseController@get')->where('page_num', '[0-9]+');
     Route::post('course/list/post', 'Admin\CourseController@post');
     Route::get('course/available/list/{page_num}', 'Admin\CourseAvailableController@get')->where('page_num', '[0-9]+');
@@ -56,38 +50,35 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth_admin'], function () {
     Route::post('course/new/post', 'Admin\CourseNewController@post');
     Route::get('course/edit/{id}', 'Admin\CourseEditController@get');
     Route::post('course/edit/post', 'Admin\CourseEditController@post');
-
     Route::get('class/list/{page_num}', 'Admin\ClassController@get')->where('page_num', '[0-9]+');
     Route::post('class/list/post', 'Admin\ClassController@post');
     Route::get('class/new', 'Admin\ClassNewController@get');
     Route::post('class/new/post', 'Admin\ClassNewController@post');
     Route::get('class/edit/{id}', 'Admin\ClassEditController@get');
     Route::post('class/edit/post', 'Admin\ClassEditController@post');
-
     Route::get('manage/select_unit', 'Admin\ManageSelectUnitController@get');
-
     Route::get('semester/list/{page_num}', 'Admin\SemesterController@get')->where('page_num', '[0-9]+');
     Route::post('semester/new/post', 'Admin\SemesterController@post');
     Route::get('student/financial_record', 'Admin\FinancialRecordController@get');
+/// **********************me****************************//
+    /// **********************me****************************///// **********************me****************************///// **********************me****************************//
+    /// **********************me****************************//
+    Route::resource('/form_','Form_Admin_Controller');//form_
+/// **********************me****************************//
+/// **********************me****************************///// **********************me****************************//
 });
-
 Route::get('admin/login', ['as' => 'login', 'uses' => 'Admin\LoginController@get']);
 Route::post('admin/login/post', 'Admin\LoginController@post');
 Route::post('admin/logout', 'Admin\LogoutController@logout');
-
 Route::get('not_found', 'Admin\NotFoundController@get');
-
-
-Route::group(['prefix' => 'user'], function () {
+Route::group(['prefix' => 'user'], function ()
+ {
 
     Route::get('home', 'User\HomeController@get');
     Route::post('home/post', 'User\HomeController@post');
 
     Route::get('news/details', 'User\NewsDetailsController@get');
-
-
 });
-
 Route::group(['prefix' => 'student', 'middleware' => 'auth_student'], function () {
     Route::get('home', 'Student\HomeController@get');
     Route::get('setting', 'Student\SettingController@get');
@@ -98,4 +89,10 @@ Route::group(['prefix' => 'student', 'middleware' => 'auth_student'], function (
 });
 Route::get('student/login', ['as' => 'login_student', 'uses' => 'Student\LoginController@get']);
 Route::post('student/login/post', 'Student\LoginController@post');
+/// **********************me****************************//// **********************me****************************//// **********************me****************************//
+Route::resource('/formform','Form_Controller');
+Route::resource('/newform','');
+/// **********************me****************************//// **********************me****************************//// **********************me****************************//
 
+Route::get('food','foodcontroller@get');
+Route::post('foodpost','foodcontroller@post');
